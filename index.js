@@ -1,6 +1,7 @@
 // Backend (Node.js + Express)
 const express = require('express');
-const sqlite3 = require('sqlite3').verbose();
+//const sqlite3 = require('sqlite3').verbose();
+const Database = require("better-sqlite3");
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const jwt = require('jsonwebtoken')
@@ -18,7 +19,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Database setup
-const db = new sqlite3.Database('./neetexam.db', (err) => {
+const db = new Database('./neetexam.db', (err) => {
   if (err) console.error('Database opening error:', err);
   console.log('Connected to SQLite database.');
 });
