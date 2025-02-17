@@ -19,10 +19,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Database setup
-const db = new Database('./neetexam.db', (err) => {
-  if (err) console.error('Database opening error:', err);
-  console.log('Connected to SQLite database.');
-});
+const db = new Database('neetexam.db')
 
 // Create tables
 const createTables = `
